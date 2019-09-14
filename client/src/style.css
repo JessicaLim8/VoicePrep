@@ -4,10 +4,19 @@
   align: middle;
 }
 
+.accentButton {
+  cursor: pointer;
+  border: solid white 1px;
+  border-radius: 20px;
+  background-color: #2D204C;
+  color: white;
+  padding: 5px 20px;
+}
+
 .button {
   cursor: pointer;
   border: solid black 1px;
-  border-radius: 50px;
+  border-radius: 20px;
   background-color: #E1D8F6;
   color: black;
   padding: 5px 20px;
