@@ -37,7 +37,8 @@ export default class recordAction extends Component {
   }
 
   restart = () => {
-    this.setState({transcript: "", first: true});
+    this.setState({transcript: "", first: true, playing: false});
+    recognition.stop();
     this.recordAction();
   }
 
@@ -48,9 +49,9 @@ export default class recordAction extends Component {
       console.log("starting to record")
     } else if (isPlaying) {
       recognition.stop();
-      console.log("recordAction has stopped");
+      console.log("recording has stopped");
     }
-    this.setState({playing: !isPlaying});
+    this.setState({first: false, playing: !isPlaying});
   }
 
   render() {
@@ -65,6 +66,7 @@ export default class recordAction extends Component {
           <div style={{padding: 20}}>
             <img src={this.state.playing === true ? play : pause} alt={this.state.playing ? "recordAction" : "PAUSED"} onClick={this.recording} style={{cursor: "pointer"}}/>
           </div>
+          { this.state.transcript.length === 0 && this.state.first === false && this.state.playing === false && "No audio was found" }
           <div style={{padding: 20}}>
             { this.state.transcript.length === 0 || this.state.playing === true ?
               <button className="button" onClick={this.recordAction}>
