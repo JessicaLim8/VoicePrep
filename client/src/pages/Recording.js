@@ -2,10 +2,33 @@ import React, { Component } from 'react';
 import "../style.css";
 import play from "./play.png";
 import pause from "./pause.png";
+import logo from "../logo.png";
+
+const webkitSpeechRecognition = window.webkitSpeechRecognition
+const SpeechRecognition = webkitSpeechRecognition
+const recognition = new SpeechRecognition()
+
+recognition.autoStart = false
+recognition.interimResults = true
+recognition.lang = 'en-US'
+
 export default class Recording extends Component {
   constructor(props) {
     super(props);
-    this.state = {playing: false, question: questions[Math.floor(Math.random() * 10)]}
+    this.state = {
+      transcript: "",
+      playing: false,
+      question: questions[Math.floor(Math.random() * 10)],
+      recognition: recognition,
+    }
+
+    this.state.recognition.onresult = this.handleListen.bind(this)
+  }
+
+  handleListen = (event) => {
+    if (event.results[0][0].confidence >= 0.85) {
+      this.setState({transcript: event.results[0][0]})
+    }
   }
 
   changeQ = () => {
@@ -14,6 +37,13 @@ export default class Recording extends Component {
 
   recording = () => {
     const isPlaying = this.state.playing;
+    if (!isPlaying) {
+      recognition.start();
+      console.log("starting to record")
+    } else if (isPlaying) {
+      recognition.stop();
+      console.log("recording has stopped");
+    }
     this.setState({playing: !isPlaying});
   }
 
@@ -21,6 +51,7 @@ export default class Recording extends Component {
     return (
         <div className="main" style={{paddingTop: 50}}>
           <div>
+            <img src={logo} width="15%" alt="logo"/>
             <h2>
               " {this.state.question} "
             </h2>

@@ -7,15 +7,13 @@ export default class Landing extends Component {
     return (
         <div className="main">
           <div style={{paddingTop: 80, paddingBottom: 20}}>
-            <img src={logo} width="15%" alt="logo"/>
-          </div>
-          <div>
             <h1>
               Voice Prep
             </h1>
             <p>
-              No more Uhms and Likes
+              Interview with no more Uhms and Likes
             </p>
+            <img src={logo} width="25%" alt="logo"/>
           </div>
           <div style={{padding: 10}}>
           </div>
