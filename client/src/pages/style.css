@@ -1,0 +1,9 @@
+.groupbutton {
+  padding: 10px
+}
+
+.group {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
