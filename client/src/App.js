@@ -17,7 +17,7 @@ export default class App extends Component {
     return (
       <div className="App">
         { this.state.current === "Landing" ?
-          (<div>
+          (<div className="centered">
               <Landing/>
               <button className="button" onClick={this.onClick}>
                 <h2 style={{cursor: "pointer"}}> Start Practicing! </h2>

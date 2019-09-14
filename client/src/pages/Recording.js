@@ -64,9 +64,8 @@ export default class recordAction extends Component {
             </h2>
           </div>
           <div style={{padding: 20}}>
-            <img src={this.state.playing === true ? play : pause} alt={this.state.playing ? "recordAction" : "PAUSED"} onClick={this.recording} style={{cursor: "pointer"}}/>
+            <img src={this.state.playing === false ? play : pause} alt={this.state.playing ? "recordAction" : "PAUSED"} onClick={this.recording} style={{cursor: "pointer"}}/>
           </div>
-          { this.state.transcript.length === 0 && this.state.first === false && this.state.playing === false && "No audio was found" }
           <div style={{padding: 20}}>
             { this.state.transcript.length === 0 || this.state.playing === true ?
               <button className="button" onClick={this.recordAction}>
@@ -90,6 +89,7 @@ export default class recordAction extends Component {
                 </div>
               </div>
             }
+                <div style={{padding: 5}}> {this.state.transcript.length === 0 && this.state.first === false && this.state.playing === false ? "No audio was found" : " "} </div>
           </div>
           <div>
             <p> Don't like the question? Click <span onClick={this.changeQ} style={{textDecoration: "underline", cursor: "pointer"}}>here</span> for a new one </p>
