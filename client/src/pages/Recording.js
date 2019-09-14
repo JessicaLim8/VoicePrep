@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import "../style.css";
+import "./style.css";
 import play from "./play.png";
 import pause from "./pause.png";
 import logo from "../logo.png";
@@ -12,7 +12,7 @@ recognition.autoStart = false
 recognition.interimResults = true
 recognition.lang = 'en-US'
 
-export default class Recording extends Component {
+export default class recordAction extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -20,6 +20,7 @@ export default class Recording extends Component {
       playing: false,
       question: questions[Math.floor(Math.random() * 10)],
       recognition: recognition,
+      first: true
     }
 
     this.state.recognition.onresult = this.handleListen.bind(this)
@@ -32,17 +33,22 @@ export default class Recording extends Component {
   }
 
   changeQ = () => {
-    this.setState({question: questions[Math.floor(Math.random() * 10)] })
+    this.setState({first: true, question: questions[Math.floor(Math.random() * 10)] })
   }
 
-  recording = () => {
+  restart = () => {
+    this.setState({transcript: "", first: true});
+    this.recordAction();
+  }
+
+  recordAction = () => {
     const isPlaying = this.state.playing;
     if (!isPlaying) {
       recognition.start();
       console.log("starting to record")
     } else if (isPlaying) {
       recognition.stop();
-      console.log("recording has stopped");
+      console.log("recordAction has stopped");
     }
     this.setState({playing: !isPlaying});
   }
@@ -57,15 +63,34 @@ export default class Recording extends Component {
             </h2>
           </div>
           <div style={{padding: 20}}>
-            <img src={this.state.playing === true ? play : pause} alt={this.state.playing ? "RECORDING" : "PAUSED"} onClick={this.recording} style={{cursor: "pointer"}}/>
+            <img src={this.state.playing === true ? play : pause} alt={this.state.playing ? "recordAction" : "PAUSED"} onClick={this.recording} style={{cursor: "pointer"}}/>
           </div>
           <div style={{padding: 20}}>
-            <button className="button" onClick={this.recording}>
-              <h2 style={{cursor: "pointer"}}> {this.state.playing === true ? "Analyze Recording" : "Start Recording"} </h2>
-            </button>
+            { this.state.transcript.length === 0 || this.state.playing === true ?
+              <button className="button" onClick={this.recordAction}>
+                <h2 style={{cursor: "pointer"}}> {this.state.playing === true ? "Stop Recording" : "Start Recording"} </h2>
+              </button> :
+              <div className="group">
+                <div className="groupbutton">
+                  <button className="button" onClick={this.recordAction}>
+                    <h2 style={{cursor: "pointer"}}> Continue </h2>
+                  </button>
+                </div>
+                <div className="groupbutton">
+                  <button className="button" onClick={this.recordAction}>
+                    <h2 style={{cursor: "pointer"}}> Restart </h2>
+                  </button>
+                </div>
+                <div className="groupbutton">
+                  <button className="accentButton" onClick={() => console.log(this.state.transcript)} >
+                    <h2 style={{cursor: "pointer"}}> Analyze </h2>
+                  </button>
+                </div>
+              </div>
+            }
           </div>
           <div>
-            <p > Don't like the question? Click <span onClick={this.changeQ} style={{textDecoration: "underline", cursor: "pointer"}}>here</span> for a new one </p>
+            <p> Don't like the question? Click <span onClick={this.changeQ} style={{textDecoration: "underline", cursor: "pointer"}}>here</span> for a new one </p>
           </div>
       </div>
     );
