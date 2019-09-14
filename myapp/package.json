@@ -1,0 +1,23 @@
+{
+  "name": "myapp",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/JessicaLim8/htn2019.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/JessicaLim8/htn2019/issues"
+  },
+  "homepage": "https://github.com/JessicaLim8/htn2019#readme",
+  "dependencies": {
+    "@azure/cognitiveservices-textanalytics": "^4.0.0",
+    "@azure/ms-rest-js": "^2.0.4"
+  }
+}
