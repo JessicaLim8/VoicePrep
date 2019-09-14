@@ -18,9 +18,6 @@ export default class Landing extends Component {
             </p>
           </div>
           <div style={{padding: 10}}>
-            <button className="button">
-              <h2 style={{cursor: "pointer"}}> Start Practicing! </h2>
-            </button>
           </div>
       </div>
     );
