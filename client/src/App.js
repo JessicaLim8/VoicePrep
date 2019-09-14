@@ -9,10 +9,21 @@ export default class App extends Component {
     this.state = { current: "Landing" };
   }
 
+  onClick = () => {
+    this.setState({current: "Recording"})
+  }
+
   render() {
     return (
       <div className="App">
-        { this.state.current === "Landing" ? <Landing/> : <Recording/>  }
+        { this.state.current === "Landing" ?
+          (<div>
+              <Landing/>
+              <button className="button" onClick={this.onClick}>
+                <h2 style={{cursor: "pointer"}}> Start Practicing! </h2>
+              </button>
+          </div>) :
+          <Recording/> }
       </div>
     );
   }
