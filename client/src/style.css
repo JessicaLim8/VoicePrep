@@ -1,0 +1,19 @@
+.App {
+  height: 100vh;
+  text-align: center;
+  vertical-align: middle;
+}
+
+.button {
+  cursor: pointer;
+  border: solid black 1px;
+  border-radius: 50px;
+  background-color: #E1D8F6;
+  color: black;
+  padding: 5px 20px;
+}
+
+.main {
+  height: 100vh;
+  vertical-align: middle;
+}
