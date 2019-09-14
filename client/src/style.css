@@ -25,3 +25,8 @@
 .main {
   vertical-align: middle;
 }
+
+.centered {
+  flex-direction: column;
+  justify-content: center;
+}
