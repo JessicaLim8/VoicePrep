@@ -50,7 +50,16 @@ export default class Results extends Component {
                 <h2> Overall score </h2>
               </div>
               <div>
-                <h2> Common words </h2>
+                <h2> Overused Filler words </h2>
+                {
+                Object.entries(wordCounter(this.props.location.state.data)).map(([key,value])=>{
+                  if (value > 0) {
+                    return (
+                      <div>{key} : {value.toString()}</div>
+                  );
+                  } 
+                })
+                }
               </div>
             </div>
           </div>

@@ -64,6 +64,7 @@ export function wordCounter(speech) {
         }
     }
     return fillerWords;
+
 }
 
 
