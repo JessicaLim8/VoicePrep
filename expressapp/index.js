@@ -10,8 +10,6 @@ const port = 3001
 app.use(cors())
 app.use(express.json())
 
-//app.get('/', (req, res) => res.send('Hello World!'))
-
 app.post('/analyze', async (req, res) => {
     const documents = req.body
 
