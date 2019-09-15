@@ -1,18 +1,29 @@
 import React, { Component } from 'react';
-import "./style.css";
-import logo from "../Text-logo.png";
+import "./style.css"
+import { CircularProgressbar } from 'react-circular-progressbar';
+import 'react-circular-progressbar/dist/styles.css';
 import Wrapper from "../layout/wrapper.js";
-import {Link} from "react-router-dom"
+import {Link} from "react-router-dom";
 
 export default class Results extends Component {
   render() {
-  console.log(this.props)
+  console.log(this.props.location.state)
     return (
       <Wrapper>
         <div className="main">
-          <div style={{paddingTop: 80, paddingBottom: 20}}>
+          <div style={{paddingTop: 0, paddingBottom: 20}}>
             <h1> Results </h1>
-              <h2> Overall semtiment score </h2>
+            <div className="group">
+              <div className="vertGroup">
+                <div style={{width: "50%"}}>
+                  <CircularProgressbar value={67} text={"67"} />
+                </div>
+                <h2> Overall score </h2>
+              </div>
+              <div>
+                <h2> Common words </h2>
+              </div>
+            </div>
           </div>
           <div style={{padding: 10, right: 5, bottom: 5}}>
             <Link to="/record">
