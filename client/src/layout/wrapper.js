@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import { Link } from "react-router-dom";
-import home from "./home.png";
 import logo from "../Text-logo.png";
 import "./style.css"
 
