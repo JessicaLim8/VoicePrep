@@ -29,7 +29,7 @@ export default class Recording extends Component {
 
   handleListen = (event) => {
     if (event.results[0][0].confidence >= 0.85) {
-      this.setState({ transcript: event.results[0][0] })
+      this.setState({transcript: event.results[0][0].transcript});
     }
   }
 
@@ -53,10 +53,6 @@ export default class Recording extends Component {
       console.log("recording has stopped");
     }
     this.setState({ first: false, playing: !isPlaying });
-  }
-
-  analyze = () => {
-    console.log(this.state.transcript)
   }
 
   render() {
@@ -91,8 +87,8 @@ export default class Recording extends Component {
                   </button>
                 </div>
                 <div className="groupbutton">
-                  <Link to="/results">
-                    <button className="accentButton" onClick={this.analyze}>
+                  <Link to={{pathname: "/results", state: {data: this.state.transcript}}}>
+                    <button className="accentButton">
                       <h2 style={{cursor: "pointer"}}> Analyze </h2>
                     </button>
                   </Link>
