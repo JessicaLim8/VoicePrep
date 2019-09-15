@@ -16,9 +16,9 @@ const endpoint = process.env[endpoint_var];
 const creds = new CognitiveServicesCredentials.ApiKeyCredentials({ inHeader: { 'Ocp-Apim-Subscription-Key': subscription_key } });
 const client = new TextAnalyticsAPIClient.TextAnalyticsClient(creds, endpoint);
 
-let inputLanguage = {
+const inputLanguage = {
     documents: [
-        {language:"en", id:"1", text:"My cat might need to see a veterinarian."}
+        {language:"en", id:"1", text:"I really don't like people who are really annoying and really suck."}
     ]
     };
 
@@ -29,6 +29,7 @@ operation
 .then(result => {
     console.log('Sentiment Analysis:');
     console.log(result.documents);
+    
 })
 .catch(err => {
     throw err;

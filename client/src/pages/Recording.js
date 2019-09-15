@@ -90,11 +90,24 @@ export default class Recording extends Component {
                   </button>
                 </div>
                 <div className="groupbutton">
+<<<<<<< HEAD
                   <Link to="/results">
                     <button className="accentButton" onClick={this.analyze}>
                       <h2 style={{cursor: "pointer"}}> Analyze </h2>
                     </button>
                   </Link>
+=======
+                  <button className="accentButton" onClick={() => {
+                    const documents = [{
+                      id: '1',
+                      text: this.state.transcript,
+                      language:"en",
+                    }]   
+                  } 
+                  } >
+                    <h2 style={{cursor: "pointer"}}> Analyze </h2>
+                  </button>
+>>>>>>> update
                 </div>
               </div>
             }
