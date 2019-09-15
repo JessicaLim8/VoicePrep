@@ -3,9 +3,14 @@ import "./style.css"
 import { CircularProgressbar } from 'react-circular-progressbar';
 import 'react-circular-progressbar/dist/styles.css';
 import Wrapper from "../layout/wrapper.js";
-import {Link} from "react-router-dom";
+import { Link } from "react-router-dom";
 
 export default class Results extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {percentage: 100}
+  }
+
   async componentDidMount() {
     const documents = [{
       id: '1',
@@ -23,8 +28,10 @@ export default class Results extends Component {
       body: JSON.stringify(documents), // body data type must match "Content-Type" header
     })
 
-    const json = await response.json()
-    alert(json.sentiment.documents[0].score*100)
+    console.log("hi");
+    const json = await response.json();
+    this.setState({percentage: json.sentiment.documents[0].score*100});
+    console.log(this.state)
   }
 
   render() {
@@ -37,7 +44,7 @@ export default class Results extends Component {
             <div className="group">
               <div className="vertGroup">
                 <div style={{width: "50%"}}>
-                  <CircularProgressbar value={67} text={"67"} />
+                  <CircularProgressbar value={this.state.percentage} text={this.state.percentage + "%"} />
                 </div>
                 <h2> Overall score </h2>
               </div>
