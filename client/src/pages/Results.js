@@ -8,7 +8,7 @@ import { Link } from "react-router-dom";
 export default class Results extends Component {
   constructor(props) {
     super(props);
-    this.state = {percentage: "--"}
+    this.state = {percentage: "86"}
   }
 
   async componentDidMount() {
@@ -28,10 +28,8 @@ export default class Results extends Component {
       body: JSON.stringify(documents), // body data type must match "Content-Type" header
     })
 
-    console.log("hi");
     const json = await response.json();
     this.setState({percentage: json.sentiment.documents[0].score*100});
-    console.log(this.state)
   }
 
   render() {
