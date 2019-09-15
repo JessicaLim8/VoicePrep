@@ -13,7 +13,7 @@ recognition.autoStart = false
 recognition.interimResults = true
 recognition.lang = 'en-US'
 
-export default class Recording  extends Component {
+export default class Recording extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -61,10 +61,12 @@ export default class Recording  extends Component {
 
   render() {
     return (
-        <div className="main" style={{paddingTop: 50}}>
+        <div className="main" style={{paddingTop: 100}}>
           <div>
-            <img src={logo} width="20%" alt="logo"/>
-            <h2>
+            <Link to="/">
+              <img src={logo} width="20%" alt="logo"/>
+            </Link>
+            <h2 style={{paddingTop: 50}}>
               " {this.state.question} "
             </h2>
           </div>
