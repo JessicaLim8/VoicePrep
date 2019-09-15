@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import "../style.css";
 import logo from "../logo.png";
+import text from "../Text.png";
 import {Link} from "react-router-dom"
 
 export default class Landing extends Component {
@@ -8,11 +9,9 @@ export default class Landing extends Component {
     return (
         <div className="main">
           <div style={{paddingTop: 80, paddingBottom: 20}}>
-            <h1>
-              Voice Prep
-            </h1>
+            <img src={text} width="25%" alt="logo"/>
             <p>
-              Interview with no more Uhms and Likes
+              Prep for interviews with no more Uhms or Likes
             </p>
             <img src={logo} width="25%" alt="logo"/>
           </div>
