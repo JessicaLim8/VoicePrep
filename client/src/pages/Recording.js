@@ -61,7 +61,6 @@ export default class Recording extends Component {
 
   render() {
     return (
-<<<<<<< HEAD
         <div className="main" style={{paddingTop: 100}}>
           <div>
             <Link to="/">
@@ -91,24 +90,11 @@ export default class Recording extends Component {
                   </button>
                 </div>
                 <div className="groupbutton">
-<<<<<<< HEAD
                   <Link to="/results">
                     <button className="accentButton" onClick={this.analyze}>
                       <h2 style={{cursor: "pointer"}}> Analyze </h2>
                     </button>
                   </Link>
-=======
-                  <button className="accentButton" onClick={() => {
-                    const documents = [{
-                      id: '1',
-                      text: this.state.transcript,
-                      language:"en",
-                    }]   
-                  } 
-                  } >
-                    <h2 style={{cursor: "pointer"}}> Analyze </h2>
-                  </button>
->>>>>>> update
                 </div>
               </div>
             }
@@ -117,7 +103,6 @@ export default class Recording extends Component {
           <div>
             <p> Don't like the question? Click <span onClick={this.changeQ} style={{textDecoration: "underline", cursor: "pointer"}}>here</span> for a new one </p>
           </div>
-=======
       <div className="main" style={{ paddingTop: 50 }}>
         <div>
           <img src={logo} width="15%" alt="logo" />
@@ -178,7 +163,6 @@ export default class Recording extends Component {
         <div>
           <p> Don't like the question? Click <span onClick={this.changeQ} style={{ textDecoration: "underline", cursor: "pointer" }}>here</span> for a new one </p>
         </div>
->>>>>>> connected front end to backend
       </div>
     );
   }
