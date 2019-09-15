@@ -61,6 +61,7 @@ export default class Recording extends Component {
 
   render() {
     return (
+      <>
         <div className="main" style={{paddingTop: 100}}>
           <div>
             <Link to="/">
@@ -103,6 +104,10 @@ export default class Recording extends Component {
           <div>
             <p> Don't like the question? Click <span onClick={this.changeQ} style={{textDecoration: "underline", cursor: "pointer"}}>here</span> for a new one </p>
           </div>
+        </div>
+
+
+
       <div className="main" style={{ paddingTop: 50 }}>
         <div>
           <img src={logo} width="15%" alt="logo" />
@@ -164,6 +169,7 @@ export default class Recording extends Component {
           <p> Don't like the question? Click <span onClick={this.changeQ} style={{ textDecoration: "underline", cursor: "pointer" }}>here</span> for a new one </p>
         </div>
       </div>
+      </>
     );
   }
 }
