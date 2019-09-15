@@ -2,6 +2,19 @@
   padding: 10px
 }
 
+.CircularProgressbar-path {
+  stroke: red;
+}
+.CircularProgressbar-trail {
+  stroke: gray;
+}
+.CircularProgressbar-text {
+  fill: yellow;
+}
+.CircularProgressbar-background {
+  fill: green;
+}
+
 .group {
   display: flex;
   flex-direction: row;

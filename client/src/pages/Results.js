@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
-import "./style.css"
-import { CircularProgressbar } from 'react-circular-progressbar';
+import { CircularProgressbar, buildStyles } from 'react-circular-progressbar';
 import 'react-circular-progressbar/dist/styles.css';
+import "./style.css"
 import Wrapper from "../layout/wrapper.js";
 import { wordCounter } from "./wordcounter.js";
 import { Link } from "react-router-dom";
@@ -9,7 +9,7 @@ import { Link } from "react-router-dom";
 export default class Results extends Component {
   constructor(props) {
     super(props);
-    this.state = {percentage: 100}
+    this.state = {percentage: "--"}
   }
 
   async componentDidMount() {
@@ -40,27 +40,24 @@ export default class Results extends Component {
     return (
       <Wrapper>
         <div className="main">
-          <div style={{paddingTop: 0, paddingBottom: 20}}>
+          <div style={{paddingTop: 0, paddingBottom: 15}}>
             <h1> Results </h1>
-            <div className="group">
-              <div className="vertGroup">
-                <div style={{width: "50%"}}>
-                  <CircularProgressbar value={this.state.percentage} text={this.state.percentage + "%"} />
-                </div>
+            <div className="vertGroup">
                 <h2> Overall score </h2>
-              </div>
-              <div>
-                <h2> Overused Filler words </h2>
-                {
-                Object.entries(wordCounter(this.props.location.state.data)).map(([key,value])=>{
-                  if (value > 0) {
-                    return (
-                      <div>{key} : {value.toString()}</div>
-                  );
-                  } 
-                })
-                }
-              </div>
+                <h2> { this.state.percentage + "%" } </h2>
+                <h2> Common words </h2>
+            </div>
+            <div>
+              <h2> Overused Filler words </h2>
+              {
+              Object.entries(wordCounter(this.props.location.state.data)).map(([key,value])=>{
+                if (value > 0) {
+                  return (
+                    <div>{key} : {value.toString()}</div>
+                );
+                } 
+              })
+              }
             </div>
           </div>
           <div style={{padding: 10, right: 5, bottom: 5}}>
