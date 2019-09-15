@@ -12,7 +12,7 @@ export default class Results extends Component {
         <div className="main">
           <div style={{paddingTop: 80, paddingBottom: 20}}>
             <h1> Results </h1>
-              <h2> Overall semtiment score </h2>
+              <h2> Overall Sentiment Score </h2>
           </div>
           <div style={{padding: 10, right: 5, bottom: 5}}>
             <Link to="/record">
