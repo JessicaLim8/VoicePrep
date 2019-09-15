@@ -4,6 +4,7 @@ import { CircularProgressbar } from 'react-circular-progressbar';
 import 'react-circular-progressbar/dist/styles.css';
 import Wrapper from "../layout/wrapper.js";
 import {Link} from "react-router-dom";
+import { wordCounter } from "./wordcounter.js";
 
 export default class Results extends Component {
   async componentDidMount() {
