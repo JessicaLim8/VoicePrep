@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import "./style.css";
 import play from "./play.png";
 import pause from "./pause.png";
-import logo from "../logo.png";
+import logo from "../Text-logo.png";
 
 const webkitSpeechRecognition = window.webkitSpeechRecognition
 const SpeechRecognition = webkitSpeechRecognition
@@ -12,7 +12,7 @@ recognition.autoStart = false
 recognition.interimResults = true
 recognition.lang = 'en-US'
 
-export default class recordAction extends Component {
+export default class Recording  extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -58,7 +58,7 @@ export default class recordAction extends Component {
     return (
         <div className="main" style={{paddingTop: 50}}>
           <div>
-            <img src={logo} width="15%" alt="logo"/>
+            <img src={logo} width="20%" alt="logo"/>
             <h2>
               " {this.state.question} "
             </h2>
@@ -89,7 +89,7 @@ export default class recordAction extends Component {
                 </div>
               </div>
             }
-                <div style={{padding: 5}}> {this.state.transcript.length === 0 && this.state.first === false && this.state.playing === false ? "No audio was found" : " "} </div>
+                <div style={{paddingTop: 15}}> {this.state.transcript.length === 0 && this.state.first === false && this.state.playing === false ? "No audio was found" : " "} </div>
           </div>
           <div>
             <p> Don't like the question? Click <span onClick={this.changeQ} style={{textDecoration: "underline", cursor: "pointer"}}>here</span> for a new one </p>
