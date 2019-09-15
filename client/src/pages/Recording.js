@@ -29,7 +29,7 @@ export default class Recording extends Component {
 
   handleListen = (event) => {
     if (event.results[0][0].confidence >= 0.85) {
-      this.setState({ transcript: event.results[0][0] })
+      this.setState({transcript: event.results[0][0].transcript});
     }
   }
 

@@ -28,6 +28,7 @@ export default class Results extends Component {
   }
 
   render() {
+  console.log(this.props.location.state)
     return (
       <Wrapper>
         <div className="main">
