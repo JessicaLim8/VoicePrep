@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Link } from "react-router-dom";
 import "./style.css";
 import play from "./play.png";
 import pause from "./pause.png";
@@ -54,6 +55,10 @@ export default class Recording  extends Component {
     this.setState({first: false, playing: !isPlaying});
   }
 
+  analyze = () => {
+    console.log(this.state.transcript)
+  }
+
   render() {
     return (
         <div className="main" style={{paddingTop: 50}}>
@@ -83,9 +88,11 @@ export default class Recording  extends Component {
                   </button>
                 </div>
                 <div className="groupbutton">
-                  <button className="accentButton" onClick={() => console.log(this.state.transcript)} >
-                    <h2 style={{cursor: "pointer"}}> Analyze </h2>
-                  </button>
+                  <Link to="/results">
+                    <button className="accentButton" onClick={this.analyze}>
+                      <h2 style={{cursor: "pointer"}}> Analyze </h2>
+                    </button>
+                  </Link>
                 </div>
               </div>
             }
@@ -101,13 +108,13 @@ export default class Recording  extends Component {
 
 const questions = [
   "Tell me about yourself",
-  "What is your best quality",
+  "What is your strongest quality",
   "What is your greatest weakness",
   "Explain a time you overcame a challenge",
   "Provide an example of a time you worked in a team environment",
   "What is your proudest accomplishment",
   "What is a passion of yours",
-  "Describe yourself in 3 words",
-  "Who is your role model, and why",
+  "What life lesson would you give to your former self",
+  "Who is your role model and why",
   "What qualities do you look for in a company culture?"
 ]
