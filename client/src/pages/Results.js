@@ -15,7 +15,7 @@ export default class Results extends Component {
   async componentDidMount() {
     const documents = [{
       id: '1',
-      text: this.props.location.state,
+      text: this.props.location.state.data,
       language: "en",
     }]
 
@@ -31,7 +31,7 @@ export default class Results extends Component {
 
     console.log("hi");
     const json = await response.json();
-    this.setState({percentage: json.sentiment.documents[0].score*100});
+    this.setState({percentage: Math.round(json.sentiment.documents[0].score*100)});
     console.log(this.state)
   }
 
@@ -43,9 +43,9 @@ export default class Results extends Component {
           <div style={{paddingTop: 0, paddingBottom: 15}}>
             <h1> Results </h1>
             <div className="vertGroup">
-                <h2> Overall score </h2>
+                <h2> Overall Positivity Score </h2>
                 <h2> { this.state.percentage + "%" } </h2>
-                <h2> Overused Filler words </h2>
+                <h2> Overused Filler Words </h2>
                   {
                   Object.entries(wordCounter(this.props.location.state.data)).map(([key,value])=>{
                     if (value > 0) {
