@@ -1,5 +1,6 @@
 const CognitiveServicesCredentials = require("@azure/ms-rest-js");
 const TextAnalyticsAPIClient = require("@azure/cognitiveservices-textanalytics");
+require('dotenv').config();
 
 const cors = require('cors')
 const express = require('express')
