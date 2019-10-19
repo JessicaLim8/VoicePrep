@@ -2,13 +2,14 @@ const CognitiveServicesCredentials = require("@azure/ms-rest-js");
 const TextAnalyticsAPIClient = require("@azure/cognitiveservices-textanalytics");
 
 const cors = require('cors')
-
 const express = require('express')
+
 const app = express()
 const port = 3001
 
 app.use(cors())
 app.use(express.json())
+
 
 app.post('/analyze', async (req, res) => {
     const documents = req.body
@@ -31,13 +32,11 @@ app.post('/analyze', async (req, res) => {
     const inputLanguage = { documents };
 
 
-    // Sentiment Analysis
+    // Analysis
     let sentimentResult = await client.sentiment({ multiLanguageBatchInput: inputLanguage })
-    let keyPhrasesResult = await client.keyPhrases({ multiLanguageBatchInput: inputLanguage })
 
     let result = {
         sentiment: sentimentResult,
-        keyPhrases: keyPhrasesResult
     }
 
     res.json(result)

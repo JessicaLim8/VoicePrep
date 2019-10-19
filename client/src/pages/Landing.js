@@ -11,7 +11,7 @@ export default class Landing extends Component {
           <div style={{paddingTop: 80, paddingBottom: 20}}>
             <img src={text} width="25%" alt="logo"/>
             <p>
-              Prep for interviews with no more Uhms or Likes
+              Prep for interviews with literally no more okays, likes, and other fillers
             </p>
             <img src={logo} width="25%" alt="logo"/>
           </div>
