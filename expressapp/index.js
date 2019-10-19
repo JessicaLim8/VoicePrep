@@ -17,13 +17,13 @@ app.post('/analyze', async (req, res) => {
 
     const key_var = 'TEXT_ANALYTICS_SUBSCRIPTION_KEY';
     if (!process.env[key_var]) {
-        throw new Error('please set/export the following environment variable: ' + key_var);
+        throw new Error('Please set/export the following environment variable: ' + key_var);
     }
     const subscription_key = process.env[key_var];
 
     const endpoint_var = 'TEXT_ANALYTICS_ENDPOINT';
     if (!process.env[endpoint_var]) {
-        throw new Error('please set/export the following environment variable: ' + endpoint_var);
+        throw new Error('Please set/export the following environment variable: ' + endpoint_var);
     }
     const endpoint = process.env[endpoint_var];
 
@@ -31,7 +31,6 @@ app.post('/analyze', async (req, res) => {
     const client = new TextAnalyticsAPIClient.TextAnalyticsClient(creds, endpoint);
 
     const inputLanguage = { documents };
-
 
     // Analysis
     let sentimentResult = await client.sentiment({ multiLanguageBatchInput: inputLanguage })
@@ -43,4 +42,4 @@ app.post('/analyze', async (req, res) => {
     res.json(result)
 })
 
-app.listen(port, () => console.log(`Example app listening on port ${port}!`))
+app.listen(port, () => console.log(`Server listening on port ${port}!`))
