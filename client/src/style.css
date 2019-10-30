@@ -36,7 +36,6 @@ code {
 
 .button {
   cursor: pointer;
-  border: solid black 1px;
   border-radius: 20px;
   background-color: #E1D8F6;
   color: black;
