@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import "./style.css";
 import play from "./play.png";
 import pause from "./pause.png";
-import logo from "../Text-logo.png";
+import logo from "../images/Text-logo.png";
 
 const webkitSpeechRecognition = window.webkitSpeechRecognition
 const SpeechRecognition = webkitSpeechRecognition
@@ -65,7 +65,7 @@ export default class Recording extends Component {
             </h2>
         </div>
         <div style={{ padding: 20 }}>
-          <img src={this.state.playing === false ? play : pause} alt={this.state.playing ? "recordAction" : "PAUSED"} onClick={this.recording} style={{ cursor: "pointer" }} />
+          <img src={this.state.playing === false ? play : pause} alt={this.state.playing ? "recordAction" : "PAUSED"} onClick={this.recordAction} style={{ cursor: "pointer" }} />
         </div>
         <div style={{ padding: 20 }}>
           {this.state.transcript.length === 0 || this.state.playing === true ?
