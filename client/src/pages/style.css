@@ -15,6 +15,10 @@
   fill: green;
 }
 
+.slogan {
+  font-size: 1.3em;
+}
+
 .group {
   display: flex;
   flex-direction: row;

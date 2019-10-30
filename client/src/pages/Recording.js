@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import { Link } from "react-router-dom";
 import "./style.css";
-import play from "./play.png";
-import pause from "./pause.png";
+import play from "./images/play.png";
+import pause from "./images/pause.png";
 import logo from "../images/Text-logo.png";
 
 const webkitSpeechRecognition = window.webkitSpeechRecognition
@@ -19,7 +19,7 @@ export default class Recording extends Component {
     this.state = {
       transcript: "",
       playing: false,
-      question: questions[Math.floor(Math.random() * 10)],
+      question: questions[Math.floor(Math.random() * questions.length)],
       recognition: recognition,
       first: true
     }
@@ -47,10 +47,8 @@ export default class Recording extends Component {
     const isPlaying = this.state.playing;
     if (!isPlaying) {
       recognition.start();
-      console.log("starting to record")
     } else if (isPlaying) {
       recognition.stop();
-      console.log("recording has stopped");
     }
     this.setState({ first: false, playing: !isPlaying });
   }
