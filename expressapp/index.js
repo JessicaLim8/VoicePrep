@@ -33,11 +33,14 @@ app.post('/analyze', async (req, res) => {
     const inputLanguage = { documents };
 
     // Analysis
-    let sentimentResult = await client.sentiment({ multiLanguageBatchInput: inputLanguage })
+    let sentimentResult = await client.sentiment({ multiLanguageBatchInput: inputLanguage });
+    let keyPhrases = await client.keyPhrases({ multiLanguageBatchInput: inputLanguage });
 
     let result = {
         sentiment: sentimentResult,
-    }
+        phrases: keyPhrases,
+        test: "hi",
+    };
 
     res.json(result)
 })

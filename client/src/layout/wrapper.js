@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Link } from "react-router-dom";
-import logo from "../Text-logo.png";
+import logo from "../images/Text-logo.png";
 import "./style.css"
 
 export default class Landing extends Component {

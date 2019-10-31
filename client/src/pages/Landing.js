@@ -1,17 +1,20 @@
 import React, { Component } from 'react';
 import "../style.css";
-import logo from "../logo.png";
-import text from "../Text.png";
+import logo from "../images/logo.png";
+import text from "../images/Text.png";
 import {Link} from "react-router-dom"
 
+const I = (s) => <span style={{fontStyle: 'italic'}}>{s.children}</span>;
+
 export default class Landing extends Component {
+
   render() {
     return (
         <div className="main">
           <div style={{paddingTop: 80, paddingBottom: 20}}>
             <img src={text} width="25%" alt="logo"/>
-            <p>
-              Prep for interviews with literally no more "okay"s, "like"s, and other fillers
+            <p className="slogan">
+              Interviews without <I>like</I>s, <I>literally</I>s, <I>but</I>s or other filler words
             </p>
             <img src={logo} width="25%" alt="logo"/>
           </div>

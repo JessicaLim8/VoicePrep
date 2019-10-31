@@ -15,10 +15,27 @@
   fill: green;
 }
 
+.slogan {
+  font-size: 1.3em;
+}
+
 .group {
   display: flex;
   flex-direction: row;
   justify-content: center;
+}
+
+.largePadding{
+  padding=top: 50px;
+}
+
+.addPadding{
+  padding-top: 20px;
+}
+
+.errorMessage {
+  min-height: 20px;
+  padding-top: 20px;
 }
 
 .sideEl {
