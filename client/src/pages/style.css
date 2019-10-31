@@ -25,6 +25,19 @@
   justify-content: center;
 }
 
+.largePadding{
+  padding=top: 50px;
+}
+
+.addPadding{
+  padding-top: 20px;
+}
+
+.errorMessage {
+  min-height: 20px;
+  padding-top: 20px;
+}
+
 .sideEl {
   padding: 20px;
 }

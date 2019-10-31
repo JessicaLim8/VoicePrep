@@ -9,13 +9,13 @@ import { Link } from "react-router-dom";
 export default class Results extends Component {
   constructor(props) {
     super(props);
-    this.state = {percentage: "86"}
+    this.state = { percentage: "--", text: this.props.location.state ? this.props.location.state.data : "hello hello hello like um like um like" }
   }
 
   async componentDidMount() {
     const documents = [{
       id: '1',
-      text: this.props.location.state.data,
+      text: this.state.text,
       language: "en",
     }]
 
@@ -29,13 +29,13 @@ export default class Results extends Component {
       body: JSON.stringify(documents), // body data type must match "Content-Type" header
     })
 
-    const json = await response.json();
-    this.setState({percentage: Math.round(json.sentiment.documents[0].score*100)});
-    console.log(this.state)
+    const result = await response.json();
+    console.log(result);
+    this.setState({percentage: Math.round(result.sentiment.documents[0].score*100)});
   }
 
   render() {
-  console.log(this.props.location.state)
+    console.log(this.state);
     return (
       <Wrapper>
         <div className="main">
@@ -45,15 +45,14 @@ export default class Results extends Component {
                 <h2> Overall Positivity Score </h2>
                 <h2> { this.state.percentage + "%" } </h2>
                 <h2> Overused Filler Words </h2>
-                  {
-                  Object.entries(wordCounter(this.props.location.state.data)).map(([key,value])=>{
+                {
+                  Object.entries(wordCounter(this.state.text)).map(([key,value]) => {
                     if (value > 0) {
-                      return (
-                        <div>{key} : {value.toString()}</div>
-                    );
-                    }
+                      return (<div>{key} : {value.toString()}</div>);
+                    };
+                    return [];
                   })
-                  }
+                 }
             </div>
           </div>
           <div style={{padding: 10, right: 5, bottom: 5}}>

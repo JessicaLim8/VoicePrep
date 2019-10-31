@@ -46,9 +46,11 @@ export default class Recording extends Component {
   recordAction = () => {
     const isPlaying = this.state.playing;
     if (!isPlaying) {
+      console.log("Recording has started");
       recognition.start();
     } else if (isPlaying) {
       recognition.stop();
+      console.log("Recording has stopped");
     }
     this.setState({ first: false, playing: !isPlaying });
   }
@@ -57,15 +59,15 @@ export default class Recording extends Component {
     return (
       <div className="main" style={{ paddingTop: 100 }}>
         <div>
-          <img src={logo} width="15%" alt="logo" />
-          <h2>
+          <img src={logo} width="25%" alt="logo" />
+          <h2 className="largePadding">
             " {this.state.question} "
-            </h2>
+          </h2>
         </div>
-        <div style={{ padding: 20 }}>
+        <div className="addPadding">
           <img src={this.state.playing === false ? play : pause} alt={this.state.playing ? "recordAction" : "PAUSED"} onClick={this.recordAction} style={{ cursor: "pointer" }} />
         </div>
-        <div style={{ padding: 20 }}>
+        <div className="addPadding">
           {this.state.transcript.length === 0 || this.state.playing === true ?
             <button className="button" onClick={this.recordAction}>
               <h2 style={{ cursor: "pointer" }}> {this.state.playing === true ? "Stop Recording" : "Start Recording"} </h2>
@@ -90,10 +92,14 @@ export default class Recording extends Component {
               </div>
             </div>
           }
-        <div style={{paddingTop: 15}}> {this.state.transcript.length === 0 && this.state.first === false && this.state.playing === false ? "No audio was found" : " "} </div>
+          <div className="errorMessage">
+            {this.state.transcript.length === 0 && this.state.first === false && this.state.playing === false ? "Sorry, no audio was found. Please try again" : "\t"}
+          </div>
         </div>
         <div>
-          <p> Don't like the question? Click <span onClick={this.changeQ} style={{ textDecoration: "underline", cursor: "pointer" }}>here</span> for a new one </p>
+          <p className="slogan">
+            Don't like the question? Click <span onClick={this.changeQ} style={{ textDecoration: "underline", cursor: "pointer" }}>here</span> for a new one
+          </p>
         </div>
       </div>
     );
@@ -101,14 +107,13 @@ export default class Recording extends Component {
 }
 
 const questions = [
-  "Tell me about yourself",
-  "What is your strongest quality",
-  "What is your greatest weakness",
-  "Explain a time you overcame a challenge",
-  "Provide an example of a time you worked in a team environment",
-  "What is your proudest accomplishment",
-  "What is a passion of yours",
-  "What life lesson would you give to your former self",
-  "Who is your role model and why",
-  "What qualities do you look for in a company culture?"
+  "What qualities do you look for in a company's culture?",
+  "What life lesson would you give to your former self?",
+  "Describe an scenario in which you worked in a team environment?",
+  "Desrcibe a time in which you overcame a challenge",
+  "Who is your role model and why?",
+  "What is your greatest weakness?",
+  "What is your proudest accomplishment?",
+  "What is your strongest quality?",
+  "What are you most passionate about?",
 ]
