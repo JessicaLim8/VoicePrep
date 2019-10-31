@@ -1,5 +1,4 @@
-export function wordCounter(speech) {
-    const words = speech.split(' ');
+export function wordCounter(speech) { const words = speech.split(' ');
     let fillerWords = {
         basically: 0,
         so: 0,
@@ -15,6 +14,7 @@ export function wordCounter(speech) {
         actually: 0,
         seriously: 0,
         right: 0,
+        but: 0,
     }
     let i;
     for (i = 0; i < words.length; i++) {
@@ -58,13 +58,17 @@ export function wordCounter(speech) {
             case 'seriously':
                 fillerWords.seriously++;
                 break;
+            case 'but':
+                fillerWords.but++;
+                break;
             case 'right':
                 fillerWords.right++;
                 break;
+          default:
+            break;
         }
     }
     return fillerWords;
-
 }
 
 
