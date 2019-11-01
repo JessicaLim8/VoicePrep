@@ -1,28 +1,40 @@
 .groupbutton {
-  padding: 10px
-}
-
-.CircularProgressbar-path {
-  stroke: red;
-}
-.CircularProgressbar-trail {
-  stroke: gray;
-}
-.CircularProgressbar-text {
-  fill: yellow;
-}
-.CircularProgressbar-background {
-  fill: green;
+  padding: 10px;
 }
 
 .slogan {
   font-size: 1.3em;
 }
 
+.bold {
+  font-weight: bold;
+  color: white;
+}
+
+.transcript {
+  font-size: 1.1em;
+  padding: 0px 10em;
+  color: #E1E1E9;
+}
+
 .group {
   display: flex;
   flex-direction: row;
   justify-content: center;
+}
+
+.progressCircle{
+  max-width: 7.0em;
+  padding: 1.2em;
+}
+
+.warn {
+  color: #8D0000;
+}
+
+.listWords {
+  font-size: 1.2em;
+  color: #E1E1E9;
 }
 
 .largePadding{
@@ -44,9 +56,16 @@
 
 .vertGroup {
   display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: flex-start;
-  padding: 40px;
+  flex-direction: row;
+  justify-content: center;
+  padding: 20px;
+}
+
+.vertGroup > div {
+  padding: 10px 50px;
+}
+
+.vertGroup > h2 {
+  padding: 10px 50px;
 }
 
