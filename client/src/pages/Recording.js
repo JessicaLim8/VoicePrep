@@ -60,7 +60,7 @@ export default class Recording extends Component {
       <div className="main" style={{ paddingTop: 100 }}>
         <div>
           <img src={logo} width="25%" alt="logo" />
-          <h2 className="largePadding">
+          <h2 className="addPadding">
             " {this.state.question} "
           </h2>
         </div>

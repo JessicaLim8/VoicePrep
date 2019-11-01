@@ -1,19 +1,33 @@
+.card {
+  border: 1px solid black
+
+}
 .groupbutton {
   padding: 10px;
+}
+
+.question {
+  font-size: 1.3em;
+  font-style: italic;
 }
 
 .slogan {
   font-size: 1.3em;
 }
 
-.bold {
+.fillerHighlight {
+  color: #A40000;
+  font-weight: bold;
+}
+
+.keyHighlight {
   font-weight: bold;
   color: white;
 }
 
 .transcript {
   font-size: 1.1em;
-  padding: 0px 10em;
+  margin: 0px 15em;
   color: #E1E1E9;
 }
 
@@ -38,11 +52,12 @@
 }
 
 .largePadding{
-  padding=top: 50px;
+  padding-top: 50px;
 }
 
 .addPadding{
   padding-top: 20px;
+  padding-bottom: 10px;
 }
 
 .errorMessage {
@@ -54,18 +69,26 @@
   padding: 20px;
 }
 
-.vertGroup {
+.horGroup {
   display: flex;
   flex-direction: row;
   justify-content: center;
   padding: 20px;
 }
 
-.vertGroup > div {
+.horGroup {
   padding: 10px 50px;
 }
 
-.vertGroup > h2 {
+.horGroup > div {
   padding: 10px 50px;
+}
+
+.horGroup > h2 {
+  padding: 10px 50px;
+}
+
+.horGroup h2{
+  color: #E1E1E9;
 }
 

@@ -5,6 +5,7 @@ import './style.css';
 import 'react-circular-progressbar/dist/styles.css';
 import classnames from 'classnames';
 import Wrapper from '../layout/wrapper.js';
+import { fillerWords } from "./variables";
 import { wordCounter } from './wordcounter.js';
 import { Link } from 'react-router-dom';
 
@@ -51,16 +52,34 @@ export default class Results extends Component {
     });
   }
 
+  progressSummary = () => {
+    if (this.state.sentiment > 90) {
+      return <div className="positive"> Very Positive Response ☺ </div>
+    } else if (this.state.sentiment > 80) {
+      return <div className="positive"> Positive Response ☺ </div>
+    } else if (this.state.sentiment > 70) {
+      return <div className="positive"> Slightly Positive Response ☺</div>
+    } else if (this.state.sentiment > 50) {
+      return <div className="neutral"> Neutral Response </div>
+    } else {
+      return <div className="negative"> Negative response </div>
+    }
+  }
+
   countWords = (isFiller, text = []) => {
-    return Object.entries(wordCounter(this.state.text, isFiller, text)).map(([key,value]) => {
+    let empty = true;
+    let counts = Object.entries(wordCounter(this.state.text, isFiller, text)).map(([key,value]) => {
       if (isFiller ? value > 0 : value > 1) {
+        empty = false;
         return (
           <p className={classnames({"listWords": true, "warn": value > 5})}>
             {key.charAt(0).toUpperCase() + key.substring(1)} : {value.toString()}
-          </p>);
+          </p>
+        );
       };
       return null;
     })
+    return empty ? "No words found" : counts;
   }
 
   render() {
@@ -75,13 +94,15 @@ export default class Results extends Component {
       })
 
     const transcriptElement =
-      (this.state.showTranscript &&
-        <div>
+      this.state.showTranscript &&
+        (<div>
           <p className="transcript">
             {this.state.text.split(' ').map(( i ) => {
-              console.log(i);
-              if (i === "like") {
-                return (<span className="bold">{i} </span>)
+              if (this.state.keywords && i in this.state.keywords.reduce((arr, key) => (arr[key.toLowerCase()] = 0, arr), {})) {
+                return (<span className="keyHighlight">{i} </span>)
+              }
+              if (i in fillerWords.reduce((arr, key) => (arr[key.toLowerCase()] = 0, arr), {})) {
+                return (<span className="fillerHighlight">{i} </span>)
               }
               return (i + ' ');
             })}
@@ -91,14 +112,14 @@ export default class Results extends Component {
 
     return (
       <Wrapper>
-        <div className="main">
+        <div className={classnames("main", "card")}>
           <div style={{paddingTop: -10, paddingBottom: 15}}>
             <h1> Your Results </h1>
-            <p className="slogan" style={{fontStyle:"italic"}}>
-              " {this.state.question} "
+            <p className="question">
+              "{this.state.question}"
             </p>
             {transcriptElement}
-            <div className="vertGroup">
+            <div className="horGroup">
               <div className="positivity">
                 <h2> Sentiment </h2>
                 <CircularProgressbar
@@ -107,6 +128,7 @@ export default class Results extends Component {
                   text={`${this.state.sentiment}%`}
                   styles={progressBarStyle}
                 />
+                {this.progressSummary()}
               </div>
               <div className="filler">
                 <h2> Filler Words </h2>
