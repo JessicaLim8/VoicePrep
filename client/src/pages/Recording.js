@@ -84,7 +84,7 @@ export default class Recording extends Component {
                 </button>
               </div>
               <div className="groupbutton">
-                <Link to={{pathname: "/results", state: {data: this.state.transcript}}}>
+                <Link to={{pathname: "/results", state: {data: this.state.transcript, question: this.state.question}}}>
                   <button className="accentButton" >
                     <h2 style={{ cursor: "pointer" }}> Analyze </h2>
                   </button>
