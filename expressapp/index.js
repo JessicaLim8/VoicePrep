@@ -39,7 +39,6 @@ app.post('/analyze', async (req, res) => {
     let result = {
         sentiment: sentimentResult,
         phrases: keyPhrases,
-        test: "hi",
     };
 
     res.json(result)

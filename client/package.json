@@ -18,7 +18,10 @@
     "eject": "react-scripts eject"
   },
   "eslintConfig": {
-    "extends": "react-app"
+    "extends": [
+      "plugin:shopify/esnext",
+      "plugin:shopify/react"
+    ]
   },
   "browserslist": {
     "production": [
@@ -31,5 +34,9 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "eslint": "^6.6.0",
+    "eslint-plugin-shopify": "^31.0.0"
   }
 }
