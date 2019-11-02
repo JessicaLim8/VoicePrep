@@ -12,5 +12,5 @@ export const fillerWords = [
   'actually',
   'right',
   'but',
-]
+];
 

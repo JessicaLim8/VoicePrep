@@ -1,9 +1,24 @@
 .card {
-  border: 1px solid black
-
+  display:inline-block;
+  border: 2px solid rgba(255, 255, 255, 0.5);
+  width: 60%;
+  background-color: rgba(255, 255, 255, 0.3);
+  border-radius: 40px;
+  padding: 1.2em;
 }
+
 .groupbutton {
   padding: 10px;
+}
+
+.addPadding{
+  padding-top: 20px;
+  padding-bottom: 10px;
+}
+
+.largePadding{
+  padding-top: 40px;
+  padding-bottom: 30px;
 }
 
 .question {
@@ -16,8 +31,8 @@
 }
 
 .fillerHighlight {
-  color: #A40000;
-  font-weight: bold;
+  color: #FDBC26;
+  font-weight: 700;
 }
 
 .keyHighlight {
@@ -27,7 +42,7 @@
 
 .transcript {
   font-size: 1.1em;
-  margin: 0px 15em;
+  padding: 0px 25em;
   color: #E1E1E9;
 }
 
@@ -42,8 +57,9 @@
   padding: 1.2em;
 }
 
-.warn {
-  color: #8D0000;
+.warn{
+  color: #FDBC26 !important;
+  font-weight: 700;
 }
 
 .listWords {
@@ -51,14 +67,6 @@
   color: #E1E1E9;
 }
 
-.largePadding{
-  padding-top: 50px;
-}
-
-.addPadding{
-  padding-top: 20px;
-  padding-bottom: 10px;
-}
 
 .errorMessage {
   min-height: 20px;
@@ -74,10 +82,6 @@
   flex-direction: row;
   justify-content: center;
   padding: 20px;
-}
-
-.horGroup {
-  padding: 10px 50px;
 }
 
 .horGroup > div {

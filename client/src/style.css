@@ -47,6 +47,7 @@ code {
 }
 
 .centered {
+  display: inline-block;
   flex-direction: column;
   justify-content: center;
 }
