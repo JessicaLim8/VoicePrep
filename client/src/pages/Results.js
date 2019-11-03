@@ -9,15 +9,12 @@ import {fillerWords} from "./variables";
 import {wordCounter} from './wordcounter';
 
 export default class Results extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      sentiment: '-',
-      text: this.props.location.state ? this.props.location.state.data : '',
-      question: this.props.location.state ? this.props.location.state.question : '',
-      keywords: '',
-    };
-  }
+  state = {
+    sentiment: '-',
+    text: this.props.location.state ? this.props.location.state.data : '',
+    question: this.props.location.state ? this.props.location.state.question : '',
+    keywords: '',
+  };
 
   async componentDidMount() {
     const documents = [{
@@ -44,19 +41,18 @@ export default class Results extends Component {
   }
 
   buildWordCount = (wordList) => {
-    const countedWords = wordCounter(this.state.text, wordList);
-    const countList = [];
-    Object.entries(countedWords).forEach(([key, value]) => {
-      if (value > 0) {
-        countList.push(
+    const list = Object.entries(wordCounter(this.state.text, wordList)).map(([key, value]) => {
+      if (value > 1) {
+        return (
           <p className={classnames({listWords: true, warn: value > 5})}>
             {key.charAt(0).toUpperCase() + key.substring(1)} : {value}
           </p>
         );
       }
-    });
+      return null;
+    }).filter((element) => element !== null);
 
-    return countList.length === 0 ? 'No words found' : countList;
+    return list.length === 0 ? 'No words found' : list;
   };
 
   progressSummary = () => {
@@ -131,14 +127,12 @@ export default class Results extends Component {
               </div>
             </div>
           </div>
-          <div className="largePadding" style={{margin: 10, right: 5, bottom: 5}}>
-            <div className="groupbutton">
-              <Link to="/record">
-                <button className="button">
-                  <h2 style={{cursor: "pointer"}}>Continue Practicing</h2>
-                </button>
-              </Link>
-            </div>
+          <div className="addPadding">
+            <Link to="/record">
+              <button className="button">
+                <h2 style={{cursor: "pointer"}}>Continue Practicing</h2>
+              </button>
+            </Link>
           </div>
         </div>
       </Wrapper>
