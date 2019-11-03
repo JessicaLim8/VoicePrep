@@ -11,7 +11,6 @@ const port = 3001
 app.use(cors())
 app.use(express.json())
 
-
 app.post('/analyze', async (req, res) => {
     const documents = req.body
 
