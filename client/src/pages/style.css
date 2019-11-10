@@ -12,13 +12,13 @@
 }
 
 .addPadding{
-  padding-top: 20px;
-  padding-bottom: 10px;
+  padding-top: 10px;
+  padding-bottom: 5px;
 }
 
 .largePadding{
-  padding-top: 40px;
-  padding-bottom: 30px;
+  padding-top: 20px;
+  padding-bottom: 10px;
 }
 
 .question {
@@ -41,8 +41,7 @@
 }
 
 .transcript {
-  font-size: 1.1em;
-  padding: 0px 15em;
+  padding: 0px 5em;
   color: #E1E1E9;
 }
 
@@ -53,7 +52,7 @@
 }
 
 .progressCircle{
-  max-width: 7.0em;
+  max-width: 5.0em;
   padding: 1.2em;
 }
 
@@ -63,10 +62,8 @@
 }
 
 .listWords {
-  font-size: 1.2em;
   color: #E1E1E9;
 }
-
 
 .errorMessage {
   min-height: 20px;
@@ -81,7 +78,7 @@
   display: flex;
   flex-direction: row;
   justify-content: center;
-  padding: 20px;
+  padding: 10px 20px;
 }
 
 .horGroup > div {

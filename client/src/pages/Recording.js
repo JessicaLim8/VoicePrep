@@ -100,7 +100,7 @@ export default class Recording extends Component {
             &quot;{this.state.question}&quot;
           </h2>
         </div>
-        <div className="addPadding">
+        <div className="largePadding">
           <img src={this.state.playing ? pause : play} alt={this.state.playing ? "RECORDING" : "PAUSED"} onClick={this.toggleRecord} style={{cursor: "pointer"}} />
         </div>
         <div className="addPadding">
